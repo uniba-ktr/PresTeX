@@ -1,0 +1,99 @@
+\documentclass[11pt,english,%ngerman
+%draft,
+%handout,
+compress
+]{beamer}
+% Für den Header
+% Modify for different languages
+\newcommand{\unibastring}{University of Bamberg}
+
+\input{config/commands}
+
+
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil(#1)%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{fancyquotes}}
+  {\signed{\usebox\mybox}\end{fancyquotes}}
+
+
+\input{config/hyphenation}
+
+\setbeamertemplate{caption}[numbered]
+%\numberwithin{figure}{section}
+\begin{document}
+
+\frame{\titlepage}
+
+%\AtBeginSection[]
+%{
+%  \frame<handout:0>
+%  {
+%    \frametitle{Outline}
+%    \tableofcontents[currentsection,hideallsubsections]
+%  }
+%}
+
+\AtBeginSubsection[]
+{
+  \frame<handout:0>
+  {
+    \frametitle{Outline}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide]
+  }
+}
+
+\AtBeginSubsubsection[]
+{
+  \frame<handout:0>
+  {
+    \frametitle{Outline}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+  }
+}
+
+\newcommand<>{\highlighton}[1]{%
+  \alt#2{\structure{#1}}{{#1}}
+}
+
+\newcommand{\icon}[1]{\pgfimage[height=1em]{#1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}[allowframebreaks]{References}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\scriptsize
+\bibliographystyle{alphadin}
+\bibliography{literatur/bib}
+\normalsize
+\end{frame}
+
+
+
+
+%% Last frame
+\frame{
+  \vspace{2cm}
+  {\huge Questions ?}
+
+  \vspace{20mm}
+  \nocite*
+  
+  \begin{flushright}  
+    Marcel Gro\ss mann
+    
+    \structure{\footnotesize{\href{mailto:marcel.grossmann@uni-bamberg.de}{marcel.grossmann@uni-bamberg.de}}}
+  \end{flushright}
+}
+
+
+\end{document}
