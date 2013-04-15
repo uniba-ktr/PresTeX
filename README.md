@@ -1,5 +1,5 @@
-PreTeX
-====
+PresTeX
+=======
 
 A LaTeX Beamer template for presentations in English and German. 
 
@@ -12,9 +12,8 @@ Edit the <code>\newcommand{\lang}{ngerman}</code> command to setup the language 
 
 Furthermore, edit the <code>config/metainfo.tex</code> file to include
 * your name,
-* the title and subtitle and 
-* the submission date
-of Your presentation.
+* the title and subtitle of Your presentation and 
+* the presentation date.
 
 Compiling the Source Code
 -------------------------
