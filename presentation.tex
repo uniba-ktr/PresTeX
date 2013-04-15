@@ -1,11 +1,30 @@
-\documentclass[11pt,english,%ngerman
+%===============================================================================
+% Zweck:    KTR-Präsentation-Vorlage
+% Erstellt: 15.04.2013
+% Autor:    M.G.
+%===============================================================================
+
+%===============================================================================
+% Zum Kompilieren pdflatex und bibtex ausführen.
+%	Konfiguration: in texmaker unter Benutzer -> Benutzerbefehle einen neuen Befehl anlegen: pdflatex -synctex=1 -interaction=nonstopmode %.tex | bibtex % | pdflatex -synctex=1 -interaction=nonstopmode %.tex | pdflatex -synctex=1 -interaction=nonstopmode %.tex
+%	Entsprechende Informationen in den config/metainfo verändern
+% Zur Auswahl der Sprache im folgenden Befehl
+% ngerman für deutsch eintragen, english für Englisch.
+%===============================================================================
+
+% Options ngerman, english
+\newcommand{\lang}{english}
+
+\documentclass[11pt,\lang ,
 %draft,
 %handout,
 compress
 ]{beamer}
 % Für den Header
 % Modify for different languages
-\newcommand{\unibastring}{University of Bamberg}
+\usepackage{ifthen}
+
+\newcommand{\unibastring}{\ifthenelse{\equal{\lang}{ngerman}}{Universit\"at Bamberg}{University of Bamberg}}
 
 \input{config/commands}
 
@@ -63,17 +82,34 @@ compress
 
 
 
+\section*{}
+\begin{frame}{Content}
+\tableofcontents
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% Content starts here %%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Logo}
+\begin{frame}{Logo}
+\framesubtitle{In Blau}
+%#1 Breite
+%#2 Datei (liegt im image Verzeichnis)
+%#3 Beschriftung
+%#4 Label fuer Referenzierung
+\image{.25\textwidth}{logo.png}{Uni-Logo}{img:logo}
+\end{frame}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% References          %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{}
 \begin{frame}[allowframebreaks]{References}
 \def\newblock{\hskip .11em plus .33em minus .07em}
 \scriptsize
-\bibliographystyle{alphadin}
-\bibliography{literatur/bib}
+\bibliographystyle{IEEEtran}
+\bibliography{literature/bib}
 \normalsize
 \end{frame}
 

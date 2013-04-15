@@ -53,14 +53,13 @@
 \makeatother
 %% Now actually use the newly defined style.
 \urlstyle{leo}
-%\urlstyle{same}
 
 %% Sprache
-\usepackage[german,ngerman]{babel}
-\mode<presentation>{
-% XXX without this the number does not appear
-\AtBeginDocument{\def\figurename{{\scshape Fig.~\thefigure}}}
-}
+\ifthenelse{\equal{\lang}{ngerman}}{\usepackage[german,ngerman]{babel}}{\usepackage[\lang]{babel}}
+%\mode<presentation>{
+%% XXX without this the number does not appear
+%\AtBeginDocument{\def\figurename{{\scshape Fig.~\thefigure}}}
+%}
 %%\usepackage{abstract}
 
 %% Mathe und Formeln
@@ -90,8 +89,8 @@
 %\usepackage{fp}
 %
 %%%  Zur Darstellung des Euro-Symbols   %%
-\usepackage{eurosym, wasysym}
-\selectlanguage{german}
+%\usepackage{eurosym, wasysym}
+%\selectlanguage{german}
 %
 %%%   Fuer Bibtex nach APA Style (American Psychology Association)   %%
 %\usepackage[numbers]{natbib}
@@ -127,192 +126,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                                   COMMAND SETUP                                       %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-%
+
 %#1 Breite
 %#2 Datei (liegt im image Verzeichnis)
 %#3 Beschriftung
 %#4 Label fuer Referenzierung
-\newcommand{\image}[2]{
+\newcommand{\image}[4]{
 \begin{figure}[H]
 \centering
 \includegraphics[width=#1]{image/#2}
-%\caption{\footnotesize{#3}}
-%\label{#4}
+\caption{\footnotesize{#3}}
+\label{#4}
 \end{figure}
 }
-
-%#1 Breite
-%#2 Datei (liegt im image Verzeichnis)
-%#3 Beschriftung
-%#4 Label fuer Referenzierung
-\newcommand{\lsimage}[4]{
-\begin{landscape}
-\begin{figure}
-\centering
-\includegraphics[height=#1]{../image/#2}
-\caption{\footnotesize{#3}
-\label{#4}}
-\end{figure}
-\end{landscape}
-}
-
-%#1 Breite
-%#2 Datei (liegt im image Verzeichnis)
-%#3 Beschriftung
-%#4 Label fuer Referenzierung
-\newcommand{\pimage}[4]{
-\begin{figure}[H]
-\centering
-\includegraphics[width=#1]{../image/#2}
-\vspace{-3mm}
-\caption{\footnotesize{#3}
-\label{#4}}
-\end{figure}
-}
-
-%#1 Breite
-%#2 Datei (liegt im image Verzeichnis)
-%#3 Beschriftung
-%#4 Label fuer Referenzierung
-\newcommand{\lspimage}[4]{
-\begin{landscape}
-\begin{figure}
-\centering
-\includegraphics[height=#1]{../image/#2}
-\vspace{-5mm}
-\caption{\footnotesize{#3}
-\label{#4}}
-\end{figure}
-\end{landscape}
-}
-
-\newcommand{\twoimages}[6]{%
-\begin{minipage}[t]{.475\textwidth}%
-\image{\textwidth}{#1}{#2}{#3}%
-\vfill%
-\end{minipage}%
-\begin{minipage}[t]{.05\textwidth}%
-\hfill%
-\end{minipage}%
-\begin{minipage}[t]{.475\textwidth}%
-\image{\textwidth}{#4}{#5}{#6}%
-\vfill%
-\end{minipage}%
-}
-
-% #1 Caption pic 1
-% #2 file pic 1
-% #3 label pic 1
-% #4 caption pic 2
-% #5 file pic 2
-% #6 label pic2
-% #7 overall caption
-% #8 overall label
-\newcommand{\twosubs}[8]{
-\begin{figure}[H]
-\centerline{\subfloat[\footnotesize{#1}]{\includegraphics[width=.5\textwidth]{../image/#2}%
-\label{#3}}
-\hfil
-\subfloat[\footnotesize{#4}]{\includegraphics[width=.5\textwidth]{../image/#5}%
-\label{#6}}}
-\caption{\footnotesize{#7}}
-\label{#8}
-\end{figure}
-}
-
-%#1 Datei (liegt im graphic Verzeichnis)
-%#2 Beschriftung
-%#3 Label fuer Referenzierung
-\newcommand{\tikzimage}[3]{%
-\begin{figure}[H]%
-\centering%
-\input{../graphic/#1.tikz}%
-\caption{\footnotesize{#2}}%
-\label{#3}%
-\end{figure}
-}
-
-%#1 Datei (liegt im image Verzeichnis)
-%#2 Beschriftung
-%#3 Label fuer Referenzierung
-%#4 Skalierungsfaktor
-\newcommand{\scaletikzimage}[4]{%
-\begin{figure}[H]%
-\centering%
-\scalebox{#4}{%
-\input{../image/#1.tikz}}%
-\caption{\footnotesize{#2}}%
-\label{#3}%
-\end{figure}
-}
-
-%#1 Breite
-%#2 Höhe
-%#2 Datei (liegt im image Verzeichnis)
-%#3 Beschriftung
-%#4 Label fuer Referenzierung
-\newcommand{\imagebh}[5]{
-\begin{figure}[H]
-\centering
-\includegraphics[width=#1, height=#2]{../image/#3}
-\caption{\footnotesize{#4}}
-\label{#5}
-\end{figure}
-}
-
-%#1 Breite
-%#2 Datei (liegt im image Verzeichnis)
-%#3 zugehörige Bildunterschrift
-%#4 Beschriftung
-%#5 Label fuer Referenzierung
-\newcommand{\mathimage}[5]{
-\begin{figure}[H]
-\centering
-\includegraphics[width=#1]{../image/#2}\\
-#3
-\caption{\footnotesize{#4}}
-\label{#5}
-\end{figure}
-}
-
-%#1 algorithm name
-%#2 algorithm label
-%#3 file name in code-folder
-\newcommand{\pseudo}[3]{%
-\small%
-\begin{algorithm}[H]%
-\caption{\footnotesize{#1}}%
-\label{#2}%
-\input{code/#3.tex}%
-\end{algorithm}%
-\normalsize%
-}
-
-%#1 Text der als todo dargestellt werden soll
-%\newcommand{\todo}[1]{
-%\begin{quote}
-%\textcolor{red}{\textbf{TODO: #1}}
-%\end{quote}
-%}
-
-\newcommand{\rimage}[2]{
-\begin{figure}[H]
-\centering
-#1
-%\caption{#2}
-\end{figure}
-}
-
-\newcommand \rack {
-       {\LARGE $\square$}
-}
-
-\newcommand \deftab
-{\hspace{1.5cm}\=abcdfffefghijk\hspace{1cm}\=1\hspace{1.5cm}\=1\hspace{1.5cm}\=1\hspace{1.5cm}\=1\hspace{1.5cm}\=1\hspace{1.5cm}\=asdjadj\kill}
-
-\newcommand \einsbisfuenf
-{\> {\bf -2} \> {\bf -1} \> {\bf 0} \> {\bf 1} \> {\bf 2} \>}
 
 % #1 videofile
 % #2 scalefactor

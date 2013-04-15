@@ -1,9 +1,20 @@
 %Meta info
+%Necessary Information
 \author[shortauthor]{Author}
 \title{Title}
 \subtitle{Subtitle}
-\institute[shortinstitute]{Institute}
+%The day of the presentation
 \date{\today}
-\titlegraphic{\includegraphics[width=13mm,height=13mm]{image/logo}}
+
+%Optional Information
 \subject{subject}
 \keywords{keywords}
+
+%Already set
+\ifthenelse{\equal{\lang}{ngerman}}{%
+\institute[KTR]{Professur f\"ur Informatik\\%
+        insbesondere Kommunikationsdienste, Telekommunikationsdienste und Rechnernetze}}{%
+\institute[KTR]{Professorship for Computer Science,\\%
+        Communication Services, Telecommunication Systems and Computer Networks}}
+
+\titlegraphic{\includegraphics[width=13mm,height=13mm]{image/logo}}
