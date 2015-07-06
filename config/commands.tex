@@ -31,8 +31,6 @@
 
 %% Zeichensätze
 \usepackage[utf8]{inputenc}
-\usepackage[iso]{umlaute}
-\usepackage{lmodern}
 \usepackage{float}
 \usepackage{thumbpdf}
 \usepackage{wasysym}
@@ -55,7 +53,7 @@
 \urlstyle{leo}
 
 %% Sprache
-\ifthenelse{\equal{\lang}{ngerman}}{\usepackage[german,ngerman]{babel}}{\usepackage[\lang]{babel}}
+\usepackage[\lang]{babel}
 %\mode<presentation>{
 %% XXX without this the number does not appear
 %\AtBeginDocument{\def\figurename{{\scshape Fig.~\thefigure}}}
@@ -84,7 +82,7 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 %\usepackage{pgfplots}
-\usetikzlibrary{calc,arrows,fit,positioning,trees,snakes,backgrounds,shadows,decorations,decorations.markings,decorations.shapes,shapes,patterns,fadings}
+\usetikzlibrary{calc,arrows,fit,positioning,trees,backgrounds,shadows,decorations,decorations.markings,decorations.shapes,shapes,patterns,fadings}
 \usepackage[font=footnotesize]{subfig}
 %\usepackage{fp}
 %
