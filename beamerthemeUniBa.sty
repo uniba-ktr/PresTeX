@@ -164,7 +164,7 @@
 }
 %\makeatother
 
-\pgfdeclareimage[width=0.115\textwidth]{uniheader}{image/logow}
+\pgfdeclareimage[width=0.115\textwidth]{uniheader}{image/logo}
 
 \setbeamertemplate{blocks}[shadow=false]
 \setbeamercovered{transparent}
@@ -242,20 +242,8 @@
 {
 
 \begin{tikzpicture}
-\node[
-anchor=south west,
-  draw=unibablueI,
-  thin,
-  fill=unibablueI,
-  shape=rectangle with rounded corners,
-  minimum height=\beamer@headheight, minimum width=\textwidth,
-  rectangle with rounded corners north west=0pt,
-  rectangle with rounded corners south west=0pt,
-  rectangle with rounded corners north east=25pt,
-  rectangle with rounded corners south east=0pt,
-] at (0,0) (b) {};
-\draw (b.east) +(-.7em,0) node(logo) [anchor=east]   { \pgfuseimage{uniheader} };
-\draw[white] node(uniba) [left of=logo, anchor=east]{\scriptsize\unibastring};
+\draw[anchor=north east] node(logo) at (\textwidth,\beamer@headheight)  { \pgfuseimage{uniheader} };
+\draw[unibablueI] node(uniba) [left of=logo, anchor=east]{\scriptsize\unibastring};
 \end{tikzpicture}
 
   \vskip -1.75cm
