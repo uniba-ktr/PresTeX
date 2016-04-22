@@ -1,8 +1,9 @@
 %Berkeley / Goettingen / Hannover / Marburg / PaloAlto / Rochester
-\usetheme{Rochester}
+\usetheme{Goettingen}
 
 \RequirePackage{pgf}
 \RequirePackage{tikz}
+\RequirePackage{pdfrender}
 
 \tikzset{
   rectangle with rounded corners north west/.initial=4pt,
@@ -162,14 +163,13 @@
     \pgfpathclose
  }
 }
-%\makeatother
 
-\pgfdeclareimage[width=0.115\textwidth]{uniheader}{image/logo}
-
+\pgfdeclareimage[width=1.4em]{uniheader}{image/logo}
+\pgfdeclareimage[width=2.8em]{uniheadertitle}{image/logo}
 \setbeamertemplate{blocks}[shadow=false]
 \setbeamercovered{transparent}
 
-\beamer@headheight=0.13\paperwidth
+\beamer@headheight=0.1\paperheight
 
 \definecolor{unibablueI}{HTML}{00457D}
 \definecolor{unibablueII}{HTML}{336A97}
@@ -208,10 +208,10 @@
 \definecolor{unibagrayV}{HTML}{E7E7E6}
 
 
-\setbeamercolor*{Title bar}{fg=white}
-\setbeamercolor*{Location bar}{fg=unibablueI,bg=unibagrayV}
+\setbeamercolor*{Title bar}{fg=unibablueI}
+\setbeamercolor*{Location bar}{fg=unibablueI,bg=white}
 \setbeamercolor*{frametitle}{parent=Title bar}
-\setbeamercolor*{block title}{bg=unibablueI,fg=white}
+\setbeamercolor*{block title}{bg=white,fg=unibablueI}
 \setbeamercolor*{block body}{bg=unibagrayV,fg=black}
 \setbeamercolor*{block title alerted}{bg=nounibaredII,fg=white}
 \setbeamercolor*{block body alerted}{bg=unibaredV,fg=black}
@@ -219,55 +219,152 @@
 \setbeamercolor*{block body example}{bg=unibayellowV,fg=black}
 \setbeamercolor*{normal text}{bg=white,fg=black}
 \setbeamercolor*{alerted text}{fg=nounibaredII}
-\setbeamercolor*{section in head/foot}{bg=unibablueI,fg=white}
+\setbeamercolor*{section in head/foot}{fg=unibablueI}
 \setbeamercolor*{item}{fg=unibablueI, bg=unibagrayV}
 
-\usecolortheme[named=nounibagreenII]{structure}
+\usecolortheme[named=unibablueI]{structure}
 
 \setbeamerfont{section in head/foot}{size=\tiny,series=\normalfont}
 \setbeamerfont{frametitle}{size=\large}
 
+\setbeamertemplate{title page}{
+\begin{tikzpicture}[remember picture,overlay]
+\node[
+anchor=south east,
+  draw=unibablueV,
+  thin,
+  fill=unibablueV,
+  shape=rectangle with rounded corners,
+  minimum height=\paperheight-.2cm, minimum width=\beamer@sidebarwidth-.2cm,
+  rectangle with rounded corners north west=0pt,
+  rectangle with rounded corners south west=0pt,
+  rectangle with rounded corners north east=18pt,
+  rectangle with rounded corners south east=0pt,
+] at ($(current page.south east)+(-.1,.1)$) (b) {};
+\draw[anchor=north east] node(logo) at ($(b.north east)+(.15,.15)$) { \pgfuseimage{uniheadertitle} };
+%\draw[unibablueI] node(uniba) [below of=logo, anchor=center]{\scriptsize\unibastring};
+\end{tikzpicture}
+\vskip-0.3\beamer@headheight
+    \begin{beamercolorbox}[sep=8pt]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \vskip2em\par
+    \begin{beamercolorbox}[sep=16pt]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip2em\par
+    \begin{beamercolorbox}[sep=16pt]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip-0.5em
+    \begin{beamercolorbox}[sep=16pt]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \vfill
+}
+
+
 \setbeamertemplate{frametitle}
 {
-  \vskip-0.3\beamer@headheight
-  \vskip-\baselineskip
-  \vskip-0.2cm
-  \hskip-0.5cm\usebeamerfont*{frametitle}\insertframetitle
+\ifx\insertframesubtitle\empty
   \vskip+0.1cm
-  \hskip-0.25cm\usebeamerfont*{framesubtitle}\insertframesubtitle
+  \usebeamerfont*{frametitle}\insertframetitle
   \vskip+0.15cm
+\else  
+  \usebeamerfont*{frametitle}\insertframetitle
+  \vskip+0.1cm
+  \hskip+0.5cm\usebeamerfont*{framesubtitle}\insertframesubtitle
+  \vskip+0.15cm
+\fi
 }
 
-\setbeamertemplate{headline}
-{
-
-\begin{tikzpicture}
-\draw[anchor=north east] node(logo) at (\textwidth,\beamer@headheight)  { \pgfuseimage{uniheader} };
-\draw[unibablueI] node(uniba) [left of=logo, anchor=east]{\scriptsize\unibastring};
-\end{tikzpicture}
-
-  \vskip -1.75cm
-  \linethickness{0pt}
-
-  \framelatex{
-  \begin{beamercolorbox}[wd=\paperwidth,ht=0.3\beamer@headheight]{Title bar}
-    \usebeamerfont{section in head/foot}%
-    \insertsectionnavigationhorizontal{0pt}{\hskip0.22cm}{}%
-  \end{beamercolorbox}}
-
-  \framelatex{
-  \begin{beamercolorbox}[wd=\paperwidth,ht=0.7\beamer@headheight]{Title bar}
-  \end{beamercolorbox}}
-}
+%\setbeamertemplate{headline}
+%{
+% \vskip -\beamer@headheight
+%  \linethickness{0pt}
+%  \framelatex{
+%  \begin{beamercolorbox}[wd=\paperwidth,ht=\beamer@headheight]{Title bar}
+%    \usebeamerfont{section in head/foot}
+%    %\insertsectionnavigationhorizontal{0pt}{\hskip0.22cm}{}%
+%  \end{beamercolorbox}}
+%}
 
 \setbeamertemplate{footline}
 {
-  \linethickness{0.2pt}
+\begin{tikzpicture}[remember picture, overlay]
+\draw[thick, unibablueI] ($(current page.south west)+(.1,0.31\beamer@headheight)$) -- ($(current page.south east)+(-.1,0.31\beamer@headheight)$);
+\end{tikzpicture}
+
+  \linethickness{0pt}
   \framelatex{
-  \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.25\beamer@headheight,sep=0.1cm]{Location bar}
+  \begin{beamercolorbox}[leftskip=0.2cm, rightskip=0.2cm, wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.05cm]{Location bar}
     \usebeamerfont{section in head/foot}%
-    \insertshortauthor \ - \insertshortinstitute
+    \insertshorttitle \ | \insertshortauthor \ | \insertshortinstitute
     \hfill
     \insertframenumber/\inserttotalframenumber
   \end{beamercolorbox}}
 }
+
+\setbeamertemplate{sidebar canvas \beamer@sidebarside}[vertical shading]
+         [top=white,bottom=white]
+
+\setbeamertemplate{sidebar \beamer@sidebarside}
+  {
+  \begin{tikzpicture}[remember picture,overlay]
+\node[
+anchor=south east,
+  draw=unibablueV,
+  thin,
+  fill=unibablueV,
+  shape=rectangle with rounded corners,
+  minimum height=\paperheight-.2cm, minimum width=\beamer@sidebarwidth-.2cm,
+  rectangle with rounded corners north west=0pt,
+  rectangle with rounded corners south west=0pt,
+  rectangle with rounded corners north east=18pt,
+  rectangle with rounded corners south east=0pt,
+] at ($(current page.south east)+(-.1,.1)$) (b) {};
+\draw[anchor=north east] node(logo) at ($(b.north east)+(.15,.15)$) { \pgfuseimage{uniheadertitle} };
+%\draw[unibablueI] node(uniba) [below of=logo, anchor=center]{\scriptsize\unibastring};
+\end{tikzpicture}
+    %\beamer@tempdim=\beamer@sidebarwidth%
+    %\advance\beamer@tempdim by -6pt%
+    \vskip12em%
+    \hskip1em\insertverticalnavigation{\beamer@sidebarwidth}%
+    \vfill
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+      \usebeamercolor{normal text}%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt%
+    \fi%
+  }%
+
+  \ifx\beamer@sidebarside\beamer@lefttext%
+    \defbeamertemplate*{sidebar right}{sidebar theme}
+    {%
+      \vfill%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt}
+  \fi
+
+
+%\setbeamertemplate{section in sidebar}%{sidebar theme}
+%{%
+%  \vbox{%
+%    \vskip1ex%
+%    \beamer@sidebarformat{3pt}{section in sidebar}{\insertsectionheadnumber
+%~\insertsectionhead}%
+%  }%
+%}
+%\setbeamertemplate{section in sidebar shaded}%{sidebar theme}
+%{%
+%  \vbox{%
+%    \vskip1ex%
+%    \beamer@sidebarformat{3pt}{section in sidebar shaded}{\insertsectionheadnumber
+%~\insertsectionhead}%
+%  }%
+%}
