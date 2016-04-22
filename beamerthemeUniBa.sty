@@ -211,7 +211,7 @@
 \setbeamercolor*{Title bar}{fg=unibablueI}
 \setbeamercolor*{Location bar}{fg=unibablueI,bg=white}
 \setbeamercolor*{frametitle}{parent=Title bar}
-\setbeamercolor*{block title}{bg=white,fg=unibablueI}
+\setbeamercolor*{block title}{bg=unibablueI,fg=white}
 \setbeamercolor*{block body}{bg=unibagrayV,fg=black}
 \setbeamercolor*{block title alerted}{bg=nounibaredII,fg=white}
 \setbeamercolor*{block body alerted}{bg=unibaredV,fg=black}
@@ -296,12 +296,12 @@ anchor=south east,
 \setbeamertemplate{footline}
 {
 \begin{tikzpicture}[remember picture, overlay]
-\draw[thick, unibablueI] ($(current page.south west)+(.1,0.31\beamer@headheight)$) -- ($(current page.south east)+(-.1,0.31\beamer@headheight)$);
+\draw[thick, unibablueI] ($(current page.south west)+(.1,0.37\beamer@headheight)$) -- ($(current page.south east)+(-.1,0.37\beamer@headheight)$);
 \end{tikzpicture}
 
   \linethickness{0pt}
   \framelatex{
-  \begin{beamercolorbox}[leftskip=0.2cm, rightskip=0.2cm, wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.05cm]{Location bar}
+  \begin{beamercolorbox}[leftskip=0.2cm, rightskip=0.2cm, wd=\paperwidth,ht=0.35\beamer@headheight,sep=0.05cm]{Location bar}
     \usebeamerfont{section in head/foot}%
     \insertshorttitle \ | \insertshortauthor \ | \insertshortinstitute
     \hfill
