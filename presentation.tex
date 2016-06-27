@@ -13,19 +13,12 @@
 % ngerman für deutsch eintragen, english für Englisch.
 %===============================================================================
 
-% Options ngerman, english
-\newcommand{\lang}{english}
 
 \documentclass[10pt,\lang ,aspectratio=169,
 %draft,
 %handout,
 compress
 ]{beamer}
-% Für den Header
-% Modify for different languages
-\usepackage{ifthen}
-
-\newcommand{\unibastring}{\ifthenelse{\equal{\lang}{ngerman}}{Universit\"at Bamberg}{University of Bamberg}}
 
 \input{config/commands}
 
