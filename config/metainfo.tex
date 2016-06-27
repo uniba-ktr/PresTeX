@@ -13,3 +13,10 @@
 \institute[KTR]{\chair\\ \chairsub}
 
 \titlegraphic{\includegraphics[width=13mm,height=13mm]{image/logo}}
+
+\newif\ifgit
+\gittrue
+
+\ifgit
+  \newcommand{\gitkeys}{\gitAbbrevHash, \gitAuthorIsoDate, \gitAuthorName }
+\fi

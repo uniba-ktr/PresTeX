@@ -5,16 +5,7 @@
 % Autor:    M.G.
 %===============================================================================
 
-%===============================================================================
-% Zum Kompilieren pdflatex und bibtex ausführen.
-%	Konfiguration in texmaker: Options -> Configure Texmaker -> Quick Build -> Select Latexmk + ViewPD
-%	Entsprechende Informationen in den config/metainfo verändern
-% Zur Auswahl der Sprache im folgenden Befehl
-% ngerman für deutsch eintragen, english für Englisch.
-%===============================================================================
-
-
-\documentclass[10pt,\lang ,aspectratio=169,
+\documentclass[10pt,aspectratio=169,
 %draft,
 %handout,
 compress
@@ -38,6 +29,14 @@ compress
 \setbeamertemplate{caption}[numbered]
 %\numberwithin{figure}{section}
 \begin{document}
+  %===============================================================================
+  % Zum Kompilieren latexmk ausführen.
+  %	Konfiguration in texmaker: Options -> Configure Texmaker -> Quick Build -> Select Latexmk + ViewPD
+  %	Entsprechende Informationen in den config/metainfo verändern
+  % Zur Auswahl der Sprache im folgenden Befehl
+  % ngerman für deutsch eintragen, english für Englisch.
+  %===============================================================================
+\selectlanguage{ngerman}
 
 \frame[plain]{\titlepage}
 
@@ -92,6 +91,27 @@ compress
 %#3 Beschriftung
 %#4 Label fuer Referenzierung
 \image{.25\textwidth}{logo.png}{Uni-Logo}{img:logo}
+\end{frame}
+
+\section{Git Version}
+\begin{frame}{Git Version}\framesubtitle{\gitAbbrevHash}
+\begin{itemize}
+\item \#: \gitAbbrevHash
+\item @: \gitAuthorIsoDate
+\item \gitReferences
+\end{itemize}
+\textbf{Setup}\\
+Follow this link to \href{https://www.ctan.org/tex-archive/macros/latex/contrib/gitinfo2}{Gitinfo 2}\\
+\textbf{git hooks}\\
+  To fill watermark at buttom, deploy gitinfo2-hook.txt to githooks: (copy and make executable) or use \texttt{make git}
+  \begin{itemize}
+      \item .git/hooks/post-checkout
+      \item .git/hooks/post-commit
+      \item .git/hooks/post-merge
+  \end{itemize}
+  \textbf{Remove watermark}\\
+  To disable watermark, remove option \texttt{[mark]} from \textbackslash usepackage[mark]\{gitinfo2\} in \textit{config/commands.tex}.
+
 \end{frame}
 
 

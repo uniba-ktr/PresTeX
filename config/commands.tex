@@ -30,7 +30,7 @@
 %\usepackage{float}
 
 %% Zeichensätze
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage[iso]{umlaute}
 \usepackage{lmodern}
 \usepackage{float}
@@ -40,6 +40,10 @@
 
 \input{config/metainfo}
 \input{config/language}
+
+\ifgit
+  \usepackage[mark]{gitinfo2}
+\fi
 
 %% Hyperref
 \usepackage{hyperref}
@@ -62,9 +66,7 @@
 \usepackage{dsfont}
 \usepackage[nice]{nicefrac}
 \usepackage{cancel}  %%druchstreichen von Formeln
-%
-%% Programmieren mit Latex
-\usepackage{ifthen}
+
 
 
 \usepackage{dirtree}   %setzen von baumstrukturen
@@ -79,12 +81,11 @@
 %\usepackage{pgfplots}
 \usetikzlibrary{calc,arrows,fit,positioning,trees,snakes,backgrounds,shadows,decorations,decorations.markings,decorations.shapes,shapes,patterns,fadings}
 \usepackage[font=footnotesize]{subfig}
-%\usepackage{fp}
-%
+
 %%%  Zur Darstellung des Euro-Symbols   %%
 %\usepackage{eurosym, wasysym}
-%\selectlanguage{german}
-%
+
+
 %%%   Fuer Bibtex nach APA Style (American Psychology Association)   %%
 %\usepackage[numbers]{natbib}
 \usebibitemtemplate{\insertbiblabel}

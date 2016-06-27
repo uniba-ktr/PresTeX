@@ -13,7 +13,7 @@ $(objects): %.pdf :%.tex
 
 cleanTemp:
 	latexmk -c
-	rm -f *.bbl *.nlo *.nls
+	rm -f *.bbl *.nlo *.nls *.nav *.snm
 
 clean: cleanTemp
 	latexmk -CA
