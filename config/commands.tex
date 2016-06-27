@@ -1,6 +1,6 @@
 \usepackage{etex}
 \usepackage{stmaryrd}
-\usetheme{UniBa}
+\usetheme{UniBa169}
 %\usefonttheme{
 %	default | professionalfonts | serif |
 %	structurebold | structureitalicserif |
@@ -30,13 +30,20 @@
 %\usepackage{float}
 
 %% Zeichensätze
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[iso]{umlaute}
+\usepackage{lmodern}
 \usepackage{float}
 \usepackage{thumbpdf}
 \usepackage{wasysym}
 \usepackage{ucs}
 
 \input{config/metainfo}
+\input{config/language}
+
+\ifgit
+  \usepackage[mark]{gitinfo2}
+\fi
 
 %% Hyperref
 \usepackage{hyperref}
@@ -52,14 +59,6 @@
 %% Now actually use the newly defined style.
 \urlstyle{leo}
 
-%% Sprache
-\usepackage[\lang]{babel}
-%\mode<presentation>{
-%% XXX without this the number does not appear
-%\AtBeginDocument{\def\figurename{{\scshape Fig.~\thefigure}}}
-%}
-%%\usepackage{abstract}
-
 %% Mathe und Formeln
 \usepackage{calc}
 \usepackage{amsmath}
@@ -67,9 +66,7 @@
 \usepackage{dsfont}
 \usepackage[nice]{nicefrac}
 \usepackage{cancel}  %%druchstreichen von Formeln
-%
-%% Programmieren mit Latex
-\usepackage{ifthen}
+
 
 
 \usepackage{dirtree}   %setzen von baumstrukturen
@@ -84,12 +81,11 @@
 %\usepackage{pgfplots}
 \usetikzlibrary{calc,arrows,fit,positioning,trees,backgrounds,shadows,decorations,decorations.markings,decorations.shapes,shapes,patterns,fadings}
 \usepackage[font=footnotesize]{subfig}
-%\usepackage{fp}
-%
+
 %%%  Zur Darstellung des Euro-Symbols   %%
 %\usepackage{eurosym, wasysym}
-%\selectlanguage{german}
-%
+
+
 %%%   Fuer Bibtex nach APA Style (American Psychology Association)   %%
 %\usepackage[numbers]{natbib}
 \usebibitemtemplate{\insertbiblabel}
@@ -99,7 +95,7 @@
 
 %\usepackage[numbered,autolinebreaks,useliterate]{mcode}
 %\usepackage{verbatim}            % Quellcode einbinden (\verbatiminput) standardpaket
-%\usepackage{moreverb} 
+%\usepackage{moreverb}
 %% PseudoCode
 %\usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -111,8 +107,8 @@
 %
 %%% Code Highlighting
 %\definecolor{mygray}{gray}{.75}
-%\usepackage{listings} 
-%\lstset{numbers=left, numberstyle=\tiny, numbersep=6pt} 
+%\usepackage{listings}
+%\lstset{numbers=left, numberstyle=\tiny, numbersep=6pt}
 %\lstset{language=Python}
 %\lstset{classoffset=1, morekeywords={mycontext}, keywordstyle=\color{darkgreen}, classoffset=0, keywordstyle=\color{darkblue}}
 %\lstset{basicstyle=\small, showstringspaces=false, commentstyle=\color{mygray}, breaklines=true, captionpos=b}

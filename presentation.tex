@@ -1,30 +1,16 @@
 %===============================================================================
 % Zweck:    KTR-Präsentation-Vorlage
 % Erstellt: 15.04.2013
+% Update:   27.06.2016
 % Autor:    M.G.
 %===============================================================================
 
-%===============================================================================
-% Zum Kompilieren pdflatex und bibtex ausführen.
-%	Konfiguration: in texmaker unter Benutzer -> Benutzerbefehle einen neuen Befehl anlegen: pdflatex -synctex=1 -interaction=nonstopmode %.tex | bibtex % | pdflatex -synctex=1 -interaction=nonstopmode %.tex | pdflatex -synctex=1 -interaction=nonstopmode %.tex
-%	Entsprechende Informationen in den config/metainfo verändern
-% Zur Auswahl der Sprache im folgenden Befehl
-% ngerman für deutsch eintragen, english für Englisch.
-%===============================================================================
 
-% Options ngerman, english
-\newcommand{\lang}{ngerman}
-
-\documentclass[11pt,\lang ,
+\documentclass[10pt,aspectratio=169,
 %draft,
 %handout,
 compress
 ]{beamer}
-% Für den Header
-% Modify for different languages
-\usepackage{ifthen}
-
-\newcommand{\unibastring}{\ifthenelse{\equal{\lang}{ngerman}}{Universit\"at Bamberg}{University of Bamberg}}
 
 \input{config/commands}
 
@@ -44,8 +30,16 @@ compress
 \setbeamertemplate{caption}[numbered]
 %\numberwithin{figure}{section}
 \begin{document}
+  %===============================================================================
+  % Zum Kompilieren latexmk ausführen.
+  %	Konfiguration in texmaker: Options -> Configure Texmaker -> Quick Build -> Select Latexmk + ViewPD
+  %	Entsprechende Informationen in den config/metainfo verändern
+  % Zur Auswahl der Sprache im folgenden Befehl
+  % ngerman für deutsch eintragen, english für Englisch.
+  %===============================================================================
+\selectlanguage{ngerman}
 
-\frame{\titlepage}
+\frame[plain]{\titlepage}
 
 %\AtBeginSection[]
 %{
@@ -100,6 +94,27 @@ compress
 \image{.25\textwidth}{logo.png}{Uni-Logo}{img:logo}
 \end{frame}
 
+\section{Git Version}
+\begin{frame}{Git Version}\framesubtitle{\gitAbbrevHash}
+\begin{itemize}
+\item \#: \gitAbbrevHash
+\item @: \gitAuthorIsoDate
+\item \gitReferences
+\end{itemize}
+\textbf{Setup}\\
+Follow this link to \href{https://www.ctan.org/tex-archive/macros/latex/contrib/gitinfo2}{Gitinfo 2}\\
+\textbf{git hooks}\\
+  To fill watermark at buttom, deploy gitinfo2-hook.txt to githooks: (copy and make executable) or use \texttt{make git}
+  \begin{itemize}
+      \item .git/hooks/post-checkout
+      \item .git/hooks/post-commit
+      \item .git/hooks/post-merge
+  \end{itemize}
+  \textbf{Remove watermark}\\
+  To disable watermark, remove option \texttt{[mark]} from \textbackslash usepackage[mark]\{gitinfo2\} in \textit{config/commands.tex}.
+
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% References          %%%%%%%%%%
@@ -123,10 +138,10 @@ compress
 
   \vspace{20mm}
   \nocite*
-  
-  \begin{flushright}  
+
+  \begin{flushright}
     Marcel Gro\ss mann
-    
+
     \structure{\footnotesize{\href{mailto:marcel.grossmann@uni-bamberg.de}{marcel.grossmann@uni-bamberg.de}}}
   \end{flushright}
 }
