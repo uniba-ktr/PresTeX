@@ -5,7 +5,7 @@
 % Autor:    M.G.
 %===============================================================================
 
-\newcommand\ratio{43}
+\newcommand\ratio{169}
 \documentclass[10pt,aspectratio=\ratio,
 %draft,
 %handout,
@@ -39,8 +39,11 @@ compress
   % ngerman für deutsch eintragen, english für Englisch.
   %===============================================================================
 \selectlanguage{ngerman}
-
+\ifnum\ratio<169
+\frame{\titlepage}
+\else
 \frame[plain]{\titlepage}
+\fi
 
 %\AtBeginSection[]
 %{
@@ -92,7 +95,7 @@ compress
 %#2 Datei (liegt im image Verzeichnis)
 %#3 Beschriftung
 %#4 Label fuer Referenzierung
-\image{.25\textwidth}{logo.png}{Uni-Logo}{img:logo}
+\image{.25\textwidth}{\meta/config/images/logo.png}{Uni-Logo}{img:logo}
 \end{frame}
 
 \section{Git Version}
