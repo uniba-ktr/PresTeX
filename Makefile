@@ -13,7 +13,7 @@ githooks = .git/hooks
 all: $(objects) cleanTemp
 
 init: gitmodules $(hooks) $(styles) $(bibtexstyles) $(classes)
-#	mkdir -p graphic code images content
+	mkdir -p graphic code images content
 
 $(objects): %.pdf :%.tex
 	latexmk -pdf -pdflatex="pdflatex -shell-escape -synctex=1 -interaction=nonstopmode" -use-make $<
