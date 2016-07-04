@@ -1,7 +1,7 @@
 %===============================================================================
 % Zweck:    KTR-Präsentation-Vorlage
 % Erstellt: 15.04.2013
-% Update:   27.06.2016
+% Update:   04.07.2016
 % Autor:    M.G.
 %===============================================================================
 
@@ -12,7 +12,8 @@
 compress
 ]{beamer}
 
-\input{config/commands}
+\newcommand\meta{meta}
+\input{\meta/config/commands}
 
 
 \def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
@@ -25,7 +26,7 @@ compress
   {\signed{\usebox\mybox}\end{fancyquotes}}
 
 
-\input{config/hyphenation}
+\input{\meta/config/hyphenation}
 
 \setbeamertemplate{caption}[numbered]
 %\numberwithin{figure}{section}
