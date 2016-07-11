@@ -1,9 +1,0 @@
-version: '2'
-
-services:
-  builder:
-    image: unibaktr/dock-tex:xenial
-    volumes:
-      - ./:/src/
-    entrypoint: make
-    command: all
