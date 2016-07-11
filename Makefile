@@ -16,7 +16,7 @@ githooks = $(base)/.git/hooks
 
 .PHONY: all init clean gitmodules docker
 
-.DEFAULT_GOAL: $(main)
+.DEFAULT_GOAL := $(main)
 
 $(main) : $(main).tex
 	latexmk -pdf -pdflatex="pdflatex -shell-escape -synctex=1 -interaction=nonstopmode" -use-make $<
