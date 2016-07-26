@@ -9,7 +9,7 @@ base = .
 # Folder to clone TeXMeta to, relatively to $base
 meta = $(base)/meta
 # TeXMeta location
-metaurl = "git@github.com:uniba-ktr/TeXMeta.git"
+metaurl = "https://github.com/uniba-ktr/TeXMeta.git"
 # Git hooks
 gitinfohook = $(meta)/style/gitinfo2-hook.txt
 githooks = $(base)/.git/hooks
