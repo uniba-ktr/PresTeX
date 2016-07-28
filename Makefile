@@ -49,12 +49,8 @@ $(hooks):
 	cp $(gitinfohook) $(githooks)/$@
 	chmod u+x $(githooks)/$@
 
-# TODO Searching for a better way
-ifeq ($(base),.)
-  indocker = $(base)
-else
-  indocker = $(notdir $(CURDIR))
-endif
+absvol = $(shell git rev-parse --show-toplevel)
+incontainer = $(shell dirname $(shell git ls-tree --full-name --name-only HEAD Makefile))
 
 docker:
-	docker run -it --rm -v $(CURDIR)/$(base)/:/src/ unibaktr/dock-tex:latest /bin/sh -c "cd $(indocker) && make"
+	@docker run -it --rm -v $(absvol)/:/src/ -w /src unibaktr/dock-tex:jessie /bin/sh -c "cd $(incontainer) && make"
