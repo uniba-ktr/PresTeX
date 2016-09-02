@@ -12,7 +12,7 @@ meta = $(base)/meta
 # TeXMeta location
 metaurl = "https://github.com/uniba-ktr/TeXMeta.git"
 # Git Prepare message
-gitprepare = "Initialized Git Foo"
+gitprepare = "Initialized Git Foo $(main)"
 # Git hooks
 gitinfohook = $(meta)/style/gitinfo2-hook.txt
 githooks = $(base)/.git/hooks
@@ -30,7 +30,7 @@ dockerincontainer = $(shell dirname $(shell git ls-tree --full-name --name-only 
 prepare: initializegit gitmodules $(hooks)
 	test -f .prepared || sed -i 's#\\newcommand\\meta.*#\\newcommand\\meta{${meta}}#g' $(main).tex
 	test -f .prepared || ln -fs $(base)/.git/gitHeadInfo.gin gitHeadLocal.gin
-	test -f .prepared || git add --all
+	test -f .prepared || git add .
 	test -f .prepared || git commit -m $(gitprepare)
 	test -f .prepared || touch .prepared
 
@@ -67,6 +67,8 @@ initializegit:
 gitmodules:
 	test -d $(meta) || git submodule add $(metaurl) $(meta)
 	git submodule update --init $(meta)
+	git add $(meta)
+	git commit -m "Update meta"
 
 $(styles): %.sty : $(meta)/style/%.sty
 	cp $^ $@
