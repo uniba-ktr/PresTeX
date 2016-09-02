@@ -67,8 +67,7 @@ initializegit:
 gitmodules:
 	test -d $(meta) || git submodule add $(metaurl) $(meta)
 	git submodule update --init $(meta)
-	git add $(meta)
-	git commit -m "Update meta"
+	( git add $(meta) && git commit -m "Update meta" ) || true
 
 $(styles): %.sty : $(meta)/style/%.sty
 	cp $^ $@
