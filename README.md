@@ -6,14 +6,19 @@ A LaTeX Beamer template for presentations in English and German.
 
 ### Easy Initialization with GNU make
 
-Run `make init` in the cloned directory to setup submodules and versioning of your PDF files.
+In the `Makefile` you may adjust the `base` variable to setup your git base directory relatively to the cloned directory.
+
+
+First of all, run `make all` to initialize the repository and execute the initial build.
+Thereafter, only run `make` in the cloned directory to recreate your `pdf` file.
 
 ### Without make
 
- 1. First checkout all necessary submodules with `git submodule init` followed by `git submodule update`
- 2. Create the directories `graphic`, `code`, `images` and `content`
- 3. Copy `meta/style/beamerthemeUniBa43.sty`, `meta/style/beamerthemeUniBa169.sty` and `meta/style/IEEEtran.bst` to the root of your cloned directory.
- 4. For versioning of your PDF files copy `meta/style/gitinfo2-hook.txt` to `.git/hooks/post-checkout`, `.git/hooks/post-commit` and `.git/hooks/post-merge` and make these copies executable.
+ 1. Remove the `.git` folder and the `.gitmodules` file to be able to create a new git repository
+ 2. First checkout all necessary submodules with `git submodule init` followed by `git submodule update`
+ 3. Create the directories `graphic`, `code`, `images` and `content`
+ 4. Copy `meta/style/beamerthemeUniBa43.sty`, `meta/style/beamerthemeUniBa169.sty` and `meta/style/IEEEtran.bst` to the root of your cloned directory.
+ 5. For versioning of your PDF files copy `meta/style/gitinfo2-hook.txt` to `.git/hooks/post-checkout`, `.git/hooks/post-commit` and `.git/hooks/post-merge` and make these copies executable.
 
 ### Necessary Configurations
 

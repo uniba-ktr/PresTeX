@@ -16,7 +16,7 @@ gitprepare = "Initialized Git Foo"
 # Git hooks
 gitinfohook = $(meta)/style/gitinfo2-hook.txt
 githooks = $(base)/.git/hooks
-# Docker adjustements
+# Docker adjustments
 uid = $(shell id -u $$USER)
 gid = $(shell id -g $$USER)
 dockerabsvol = $(shell git rev-parse --show-toplevel)
