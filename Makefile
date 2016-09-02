@@ -51,8 +51,7 @@ clean:
 
 # Call make docker
 docker:
-	@docker run -it --rm -v $(dockerabsvol)/:/src/ -w /src unibaktr/dock-tex:jessie /bin/sh -c "cd $(dockerincontainer) && make && make clean"
-	chown $(uid):$(gid) $(main).pdf
+	@docker run -it --rm -v $(dockerabsvol)/:/src/ -w /src unibaktr/dock-tex:jessie /bin/sh -c "cd $(dockerincontainer) && make && make clean && chown $(uid):$(gid) $(main).pdf"
 
 all: init $(main) clean
 
