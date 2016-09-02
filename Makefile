@@ -30,9 +30,9 @@ dockerincontainer = $(shell dirname $(shell git ls-tree --full-name --name-only 
 prepare: initializegit gitmodules $(hooks)
 	test -f .prepared || sed -i 's#\\newcommand\\meta.*#\\newcommand\\meta{${meta}}#g' $(main).tex
 	test -f .prepared || ln -fs $(base)/.git/gitHeadInfo.gin gitHeadLocal.gin
-	test -f .prepared || touch .prepared
 	test -f .prepared || git add --all
 	test -f .prepared || git commit -m $(gitprepare)
+	test -f .prepared || touch .prepared
 
 # Call make init to create structure and update the meta files
 init: $(styles) $(bibtexstyles) $(classes)
