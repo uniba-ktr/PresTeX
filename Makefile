@@ -9,7 +9,7 @@ styles := beamerthemeUniBa169.sty beamerthemeUniBa43.sty
 bibtexstyles := IEEEtran.bst
 classes := IEEEtran.cls
 # TeXMeta location
-metaurl = "git@github.com/uniba-ktr/TeXMeta.git"
+metaurl := "https://github.com/uniba-ktr/TeXMeta.git"
 
 MAKE_FILE := $(meta)/Makefile
 
