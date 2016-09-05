@@ -9,7 +9,7 @@ A LaTeX Beamer template for presentations in English and German.
 In the `Makefile` you may adjust the `base` variable to setup your git base directory relatively to the cloned directory.
 
 
-First of all, run `make all` to initialize the repository and execute the initial build.
+First of all, run `make` to initialize the repository and execute the initial build.
 Thereafter, only run `make` in the cloned directory to recreate your `pdf` file.
 
 ### Without make
