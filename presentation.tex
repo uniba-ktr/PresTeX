@@ -30,6 +30,7 @@ compress
 
 \setbeamertemplate{caption}[numbered]
 %\numberwithin{figure}{section}
+
 \begin{document}
   %===============================================================================
   % Zum Kompilieren latexmk ausführen.
@@ -78,9 +79,8 @@ compress
 
 \newcommand{\icon}[1]{\pgfimage[height=1em]{#1}}
 
-
-
 \section*{}
+\phantomsection
 \begin{frame}{Content}
 \tableofcontents
 \end{frame}
@@ -116,7 +116,6 @@ Follow this link to \href{https://www.ctan.org/tex-archive/macros/latex/contrib/
   \end{itemize}
   \textbf{Remove watermark}\\
   To disable watermark, remove option \texttt{[mark]} from \textbackslash usepackage[mark]\{gitinfo2\} in \textit{config/commands.tex}.
-
 \end{frame}
 
 
@@ -125,15 +124,12 @@ Follow this link to \href{https://www.ctan.org/tex-archive/macros/latex/contrib/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{}
 \begin{frame}[allowframebreaks]{References}
-\def\newblock{\hskip .11em plus .33em minus .07em}
-\scriptsize
-\bibliographystyle{IEEEtran}
-\bibliography{\meta/exampleLiterature/bib}
-\normalsize
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \scriptsize
+ \bibliographystyle{IEEEtran}
+ \bibliography{\meta/exampleLiterature/bib}
+ \normalsize
 \end{frame}
-
-
-
 
 %% Last frame
 \frame{
