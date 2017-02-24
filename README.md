@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/uniba-ktr/PresTeX.svg?branch=master)](https://travis-ci.org/uniba-ktr/PresTeX)
+
 # PresTeX
 
 A LaTeX Beamer template for presentations in English and German.

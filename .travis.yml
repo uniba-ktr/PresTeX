@@ -10,3 +10,11 @@ script:
 - make
 - make docker
 - ls -la | grep pdf
+deploy:
+  provider: releases
+  api_key:
+    secure: $GITHUB_TOKEN
+  skip_cleanup: true
+  on:
+    repo: uniba-ktr/PresTeX
+    tags: true
