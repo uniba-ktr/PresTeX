@@ -3,7 +3,6 @@ env:
   - CGO_ENABLED=0
   - GOOS=linux
   - GOARCH=amd64
-install: make git
 sudo: required
 services:
 - docker
