@@ -8,7 +8,6 @@ services:
 - docker
 script:
 - make
-- make docker
 - ls -la | grep pdf
 deploy:
   provider: releases
