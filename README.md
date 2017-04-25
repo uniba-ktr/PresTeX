@@ -4,6 +4,10 @@
 
 A LaTeX Beamer template for presentations in English and German.
 
+## Requirements
+
+You need to have **either** a LaTeX installation with [latexmk](https://www.ctan.org/pkg/latexmk?lang=de) **or** [Docker](https://www.docker.com/) running on your PC to be able to build the source code.
+
 ## Setup
 
 ### Easy Initialization with GNU make
