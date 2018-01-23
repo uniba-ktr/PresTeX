@@ -31,3 +31,4 @@ adjustbox
 collectbox
 relsize
 catoptions
+translator
