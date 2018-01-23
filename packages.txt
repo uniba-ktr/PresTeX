@@ -32,3 +32,4 @@ collectbox
 relsize
 catoptions
 translator
+xkeyval
