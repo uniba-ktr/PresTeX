@@ -33,3 +33,6 @@ relsize
 catoptions
 translator
 xkeyval
+mathtools
+polynom
+koma-script
