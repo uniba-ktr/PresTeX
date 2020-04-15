@@ -36,3 +36,4 @@ xkeyval
 mathtools
 polynom
 koma-script
+ragged2e
