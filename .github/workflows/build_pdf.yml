@@ -1,0 +1,39 @@
+name: Local Build
+
+env:
+  BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+    pull_request:
+      branches:
+        - 'main'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3.4.0
+    - name: Configure GIT
+      run: |
+        git config --global init.defaultBranch "main"
+        git config --global user.email "ci@example.com"
+        git config --global user.name "ci"
+        git config --global --add safe.directory /src
+    - name: Build and load
+      run: make
+    - name: Show and move generated pdf
+      run: |
+        ls -la | grep pdf
+        mv *.pdf /tmp/
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: presentation.pdf
+        path: /tmp/presentation.pdf
