@@ -118,6 +118,55 @@ Follow this link to \href{https://www.ctan.org/tex-archive/macros/latex/contrib/
   To disable watermark, remove option \texttt{[mark]} from \textbackslash usepackage[mark]\{gitinfo2\} in \textit{config/commands.tex}.
 \end{frame}
 
+\section{Grafiken}
+\begin{frame}{Grafiken mit Tikz}
+  Grafiken im TikZ-Framework\footnote{\url{http://www.tn-home.de/TUGDD/Stuff/TikZ_final.pdf}} lassen sich mit dem Befehl \textbackslash scaletikzimage\{Datei im Image Verzeichnis\}\{Beschriftung\}\{Label\}\{Skalierungsfaktor\} einbinden. \scaletikzimage{tikz}{TikZ-Grafik}{img:tikz}{0.9}
+\end{frame}
+
+\begin{frame}{Grafiken mit moeptikz}
+Grafiken mit Netzwerksymbolen können einfach mit moeptikz\footnote{\url{https://github.com/moepinet/moeptikz}} erstellt werden:
+\scaletikzimage{network}{Example Network}{img:topo}{0.9}
+\end{frame}
+
+\begin{frame}{Grafiken mit Tikz-UML}
+UML basierte Grafiken können einfach mit tikz-uml\footnote{\url{https://perso.ensta-paris.fr/~kielbasi/tikzuml/index.php}} erstellt werden:
+\scaletikzimage{sequence}{Example Sequence}{img:seq}{0.9}
+\end{frame}
+
+
+\section{Tabellen}
+\begin{frame}{Tabellen}
+Tabellen lassen sich mit dem Environment\\
+\textbackslash begin\{longtable\}[H h t b c]\{Spaltendefinitionen\} ...\\
+\qquad\qquad \textbackslash caption\{Tabellenunterschrift\}\\
+\qquad\qquad \textbackslash label\{Label\}\\
+\textbackslash end\{longtable\}\\
+ definieren\footnote{\url{ftp://ftp.dante.de/pub/tex/macros/latex/required/tools/longtable.pdf}}\\
+\begin{longtable}[H]{|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|}
+\hline
+A&B&C\\
+\hline
+\caption{Tabelle 1}
+\label{tab:tab1}
+\end{longtable}
+\end{frame}
+
+\section{Code-Ausschnitte}
+
+\begin{frame}[containsverbatim]{Pseudo-Code}
+Pseudo-Code Ausschnitte lassen sich mit \textbackslash pseudo\{Name des Algorithmus\}\{Label\}\{Datei im Code-Verzeichnis\} einbinden.
+\pseudo{Mittelwert}{lst:mean}{code}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Programmiersprachen}
+Code Ausschnitte lassen sich einfach mit listings verwenden z.B. in der Umgebung \textbackslash begin\{lstlisting\} ... \textbackslash end\{lstlisting\}, wie in \autoref{lst:python} gezeigt.
+
+\begin{lstlisting}[language=Python, caption={Simple Python program}, label=lst:python]
+def my_function():
+  print("Hello from a function")
+\end{lstlisting}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% References          %%%%%%%%%%
