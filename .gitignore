@@ -8,12 +8,10 @@
 *.lof
 *.log
 *.lot
-*.nav
 *.nlo
 *.nls
 *.out
 *.pdf
-*.snm
 *.synctex.gz
 *.toc
 *.fls
@@ -23,5 +21,20 @@
 *.cls
 *.bst
 *.gin
+*.nav
+*.snm
+# glossary files
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.glsdefs
+*.slg
+*.syg
+*.syi
 # Do not initialize twice
 .prepared
+packages.txt
